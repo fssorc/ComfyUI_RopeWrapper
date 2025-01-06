@@ -1,0 +1,14 @@
+[project]
+name = "ropewrapper"
+description = "Wrap Rope into ComfyUI, do a little change to use in ComfyUI. All credit goes to Hillobar and his ROPE [ㅁ/https://github.com/Hillobar/Rope](https://github.com/Hillobar/Rope)"
+version = "1.0.0"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/fssorc/ComfyUI_RopeWrapper"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI_RopeWrapper"
+Icon = ""
