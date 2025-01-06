@@ -1,0 +1,1179 @@
+{
+  "last_node_id": 94,
+  "last_link_id": 218,
+  "nodes": [
+    {
+      "id": 48,
+      "type": "RopeWrapper_DetectNode",
+      "pos": {
+        "0": -138.00547790527344,
+        "1": -195.28909301757812
+      },
+      "size": {
+        "0": 277.20001220703125,
+        "1": 142
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "models",
+          "type": "ROPE_MODEL",
+          "link": 74
+        },
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 195
+        }
+      ],
+      "outputs": [
+        {
+          "name": "humanCount",
+          "type": "INT",
+          "links": null,
+          "slot_index": 0
+        },
+        {
+          "name": "DETECTRESULT",
+          "type": "DETECTRESULT",
+          "links": [
+            201
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "foundFaces",
+          "type": "IMAGE",
+          "links": [
+            76
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RopeWrapper_DetectNode"
+      },
+      "widgets_values": [
+        65,
+        0.5
+      ]
+    },
+    {
+      "id": 27,
+      "type": "LoadImage",
+      "pos": {
+        "0": -1876,
+        "1": 26
+      },
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            206
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "1",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pasted/image (2).png",
+        "image"
+      ]
+    },
+    {
+      "id": 37,
+      "type": "LoadImage",
+      "pos": {
+        "0": -1546,
+        "1": 450
+      },
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            208
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "3",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "noface.png",
+        "image"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "LoadImage",
+      "pos": {
+        "0": -1556,
+        "1": 819
+      },
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            216
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "4",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "templateBoy03.png",
+        "image"
+      ]
+    },
+    {
+      "id": 39,
+      "type": "LoadImage",
+      "pos": {
+        "0": -1557,
+        "1": 1178
+      },
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            217
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "5",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "noface.png",
+        "image"
+      ]
+    },
+    {
+      "id": 90,
+      "type": "ImageBatch",
+      "pos": {
+        "0": -1123,
+        "1": 169
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 209
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 208
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            214
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageBatch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 93,
+      "type": "ImageBatch",
+      "pos": {
+        "0": -1126,
+        "1": 317
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 214
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 216
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            215
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageBatch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 94,
+      "type": "ImageBatch",
+      "pos": {
+        "0": -1121,
+        "1": 445
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 215
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 217
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            218
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageBatch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 51,
+      "type": "RopeWrapper_OptionNode",
+      "pos": {
+        "0": 1040.6134033203125,
+        "1": 385.9331359863281
+      },
+      "size": {
+        "0": 315,
+        "1": 826
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "ROPE_OPTION",
+          "type": "ROPE_OPTION",
+          "links": [
+            203
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RopeWrapper_OptionNode"
+      },
+      "widgets_values": [
+        true,
+        "CF",
+        "Blend",
+        100,
+        false,
+        180,
+        false,
+        200,
+        10,
+        10,
+        10,
+        10,
+        false,
+        4,
+        false,
+        0,
+        false,
+        0,
+        0,
+        false,
+        " ",
+        50,
+        5,
+        false,
+        0,
+        0,
+        0,
+        0,
+        false,
+        0,
+        0,
+        0,
+        "128"
+      ]
+    },
+    {
+      "id": 92,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 601.6134033203125,
+        "1": 740.933349609375
+      },
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 213
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 50,
+      "type": "VHS_VideoInfo",
+      "pos": {
+        "0": -162,
+        "1": 605
+      },
+      "size": {
+        "0": 393,
+        "1": 206
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "link": 85
+        }
+      ],
+      "outputs": [
+        {
+          "name": "source_fps🟨",
+          "type": "FLOAT",
+          "links": [
+            200
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "source_frame_count🟨",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "source_duration🟨",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "source_width🟨",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "source_height🟨",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "loaded_fps🟦",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "loaded_frame_count🟦",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "loaded_duration🟦",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "name": "loaded_width🟦",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "loaded_height🟦",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoInfo"
+      },
+      "widgets_values": {}
+    },
+    {
+      "id": 34,
+      "type": "LoadImage",
+      "pos": {
+        "0": -1531,
+        "1": 41
+      },
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            207
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "2",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "noface.png",
+        "image"
+      ]
+    },
+    {
+      "id": 89,
+      "type": "ImageBatch",
+      "pos": {
+        "0": -1116,
+        "1": 51
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 206
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 207
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            209
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageBatch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 24,
+      "type": "RopeWrapper_LoadModels",
+      "pos": {
+        "0": -707,
+        "1": -196
+      },
+      "size": {
+        "0": 315,
+        "1": 78
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "ROPE_MODEL",
+          "type": "ROPE_MODEL",
+          "links": [
+            74,
+            174
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "ROPE_VM",
+          "type": "ROPE_VM",
+          "links": [
+            175
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RopeWrapper_LoadModels"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 91,
+      "type": "Display Int (rgthree)",
+      "pos": {
+        "0": -689,
+        "1": -71
+      },
+      "size": {
+        "0": 315,
+        "1": 76
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input",
+          "type": "INT",
+          "link": 211,
+          "widget": {
+            "name": "input"
+          },
+          "dir": 3
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Display Int (rgthree)"
+      },
+      "widgets_values": [
+        0,
+        ""
+      ]
+    },
+    {
+      "id": 31,
+      "type": "VHS_LoadVideo",
+      "pos": {
+        "0": -704,
+        "1": 74
+      },
+      "size": [
+        340,
+        844.9473684210526
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            195,
+            197
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": [
+            211
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            205
+          ],
+          "slot_index": 2
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": [
+            85
+          ],
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "chunjie-2-002.mp4",
+        "force_rate": 0,
+        "force_size": "Disabled",
+        "custom_width": 512,
+        "custom_height": 512,
+        "frame_load_cap": 51,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "frame_load_cap": 51,
+            "skip_first_frames": 0,
+            "force_rate": 0,
+            "filename": "chunjie-2-002.mp4",
+            "type": "input",
+            "format": "video/mp4",
+            "select_every_nth": 1
+          }
+        }
+      }
+    },
+    {
+      "id": 83,
+      "type": "RopeWrapper_SwapNode",
+      "pos": {
+        "0": 575.5234375,
+        "1": 368.9750671386719
+      },
+      "size": {
+        "0": 400,
+        "1": 312
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "models",
+          "type": "ROPE_MODEL",
+          "link": 174
+        },
+        {
+          "name": "vm",
+          "type": "ROPE_VM",
+          "link": 175
+        },
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 197
+        },
+        {
+          "name": "source_face",
+          "type": "IMAGE",
+          "link": 218
+        },
+        {
+          "name": "detectResult",
+          "type": "DETECTRESULT",
+          "link": 212
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 205,
+          "shape": 7
+        },
+        {
+          "name": "ROPE_Options",
+          "type": "ROPE_OPTION",
+          "link": 203,
+          "shape": 7
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "link": 200,
+          "widget": {
+            "name": "frame_rate"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SwappedImage",
+          "type": "IMAGE",
+          "links": [
+            213
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "fileName",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 1
+        },
+        {
+          "name": "fileNameAndPath",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RopeWrapper_SwapNode"
+      },
+      "widgets_values": [
+        true,
+        30,
+        "hh",
+        false,
+        33,
+        "0,7;2"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 248,
+        "1": -162
+      },
+      "size": {
+        "0": 250,
+        "1": 330
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 76
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 87,
+      "type": "RopeWrapper_SaveSwapInfo",
+      "pos": {
+        "0": 597,
+        "1": -112
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "detectResult",
+          "type": "DETECTRESULT",
+          "link": 201
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "RopeWrapper_SaveSwapInfo"
+      },
+      "widgets_values": [
+        "TESTchunjie-2-001.pkl"
+      ]
+    },
+    {
+      "id": 88,
+      "type": "RopeWrapper_LoadSwapInfo",
+      "pos": {
+        "0": 596,
+        "1": -5
+      },
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "DETECTRESULT",
+          "type": "DETECTRESULT",
+          "links": [
+            212
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RopeWrapper_LoadSwapInfo"
+      },
+      "widgets_values": [
+        "TESTchunjie-2-001.pkl"
+      ]
+    }
+  ],
+  "links": [
+    [
+      74,
+      24,
+      0,
+      48,
+      0,
+      "ROPE_MODEL"
+    ],
+    [
+      76,
+      48,
+      2,
+      22,
+      0,
+      "IMAGE"
+    ],
+    [
+      85,
+      31,
+      3,
+      50,
+      0,
+      "VHS_VIDEOINFO"
+    ],
+    [
+      174,
+      24,
+      0,
+      83,
+      0,
+      "ROPE_MODEL"
+    ],
+    [
+      175,
+      24,
+      1,
+      83,
+      1,
+      "ROPE_VM"
+    ],
+    [
+      195,
+      31,
+      0,
+      48,
+      1,
+      "IMAGE"
+    ],
+    [
+      197,
+      31,
+      0,
+      83,
+      2,
+      "IMAGE"
+    ],
+    [
+      200,
+      50,
+      0,
+      83,
+      7,
+      "FLOAT"
+    ],
+    [
+      201,
+      48,
+      1,
+      87,
+      0,
+      "DETECTRESULT"
+    ],
+    [
+      203,
+      51,
+      0,
+      83,
+      6,
+      "ROPE_OPTION"
+    ],
+    [
+      205,
+      31,
+      2,
+      83,
+      5,
+      "AUDIO"
+    ],
+    [
+      206,
+      27,
+      0,
+      89,
+      0,
+      "IMAGE"
+    ],
+    [
+      207,
+      34,
+      0,
+      89,
+      1,
+      "IMAGE"
+    ],
+    [
+      208,
+      37,
+      0,
+      90,
+      1,
+      "IMAGE"
+    ],
+    [
+      209,
+      89,
+      0,
+      90,
+      0,
+      "IMAGE"
+    ],
+    [
+      211,
+      31,
+      1,
+      91,
+      0,
+      "INT"
+    ],
+    [
+      212,
+      88,
+      0,
+      83,
+      4,
+      "DETECTRESULT"
+    ],
+    [
+      213,
+      83,
+      0,
+      92,
+      0,
+      "IMAGE"
+    ],
+    [
+      214,
+      90,
+      0,
+      93,
+      0,
+      "IMAGE"
+    ],
+    [
+      215,
+      93,
+      0,
+      94,
+      0,
+      "IMAGE"
+    ],
+    [
+      216,
+      38,
+      0,
+      93,
+      1,
+      "IMAGE"
+    ],
+    [
+      217,
+      39,
+      0,
+      94,
+      1,
+      "IMAGE"
+    ],
+    [
+      218,
+      94,
+      0,
+      83,
+      3,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "FindFaces",
+      "bounding": [
+        -234,
+        -286,
+        785,
+        572
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "Swap",
+      "bounding": [
+        566,
+        299,
+        850,
+        1170
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "Group",
+      "bounding": [
+        -1900,
+        -60,
+        1113,
+        1673
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.3855432894295318,
+      "offset": [
+        2440.829906518426,
+        705.9212239627697
+      ]
+    },
+    "workspace_info": {
+      "id": "SqltoeqP5Esqy1JXjyT_Q"
+    }
+  },
+  "version": 0.4
+}
