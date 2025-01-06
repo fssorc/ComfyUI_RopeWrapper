@@ -1,10 +1,51 @@
 Wrap Rope into ComfyUI, do a little change to use in ComfyUI. All credit goes to Hillobar and his ROPE
-
 https://github.com/Hillobar/Rope
 
-next is original Rope's README
+### Installation:  ###
+运行插件需要ComfyUI-VideoHelperSuite, ComfyUI-KJNodes . 因为修改过Rope的部分代码（一两行），为了避免Rope更新后插件失效，将Rope的代码加入了本仓库。再次声明Rope的代码版权属于原作者。
+所需模型放置在本插件目录下的Models里。下载地址请访问Rope原仓库。https://github.com/Hillobar/Rope
+
+To run this plugin, ComfyUI-VideoHelperSuite and ComfyUI-KJNodes are required. Since a few lines of code in Rope have been modified (one or two lines), the Rope code has been included in this repository to prevent the plugin from breaking in case of future Rope updates. Please note that the copyright for the Rope code belongs to its original author.
+
+The required models should be placed in the Models directory within this plugin's folder. For the download links, please visit the original Rope repository: https://github.com/Hillobar/Rope.
+
+### Usage:  ###
+使用步骤：先执行FindFace部分，调整detection_threshold可以找到更多人脸，调整similarytyThreshold可以区分不同身份的人。得到人脸列表以及DeteceResult。DeteceResult可以直接发送到swap节点，也用save节点保存下来，在以后重复运行的时候节省处理时间。 
+
+FindFace Section:
+First, execute the FindFace section. Adjust the detection_threshold to detect more faces, and modify the similarityThreshold to differentiate between individuals. This will generate a list of faces along with the DetectResult. The DetectResult can be directly sent to the swap node or saved using the save node for future use, which helps save processing time when running the process again.
+![image](Step1-findface.png)
+
+第二步是执行换脸，可以用Rope的全部参数进行微调。
+
+Face Swapping:
+Next, perform the face-swapping operation. You can fine-tune the process using all the parameters available in Rope.
+![image](Step2-Swap.png)
+
+### Face to Face:  ###
+在RopeWrapper_SwapNode最底端的文本输入框，用于指定视频中的source人脸与将要更换的target人脸之间的关系。用分号分割，每一段对应一个target人脸。段里用逗号分割，每个数字对应一个source人脸。
+
+例如“0,7;2"表示有两个target人脸。其中第一个人脸用于替换视频中发现的第0个和第7个source人脸，第二个targe人脸则替换第2个source人脸。如果留空，则进行简单的一一对应。
+
+In the text input box at the bottom of the RopeWrapper_SwapNode, you can specify the relationship between the source faces in the video and the target faces to be swapped. Use semicolons (;) to separate each segment, where each segment corresponds to a target face. Within each segment, use commas (,) to separate the numbers, with each number representing a source face.
+
+For example, "0,7;2" indicates two target faces:
+The first target face will replace the 0th and 7th source faces found in the video.
+The second target face will replace the 2nd source face.
+If the input box is left empty, a simple one-to-one correspondence will be applied.
+
+### Issue ###
+原本计划使用ComfyUI-VideoHelperSuit里的Combine Video节点作为最终的视频合并。但是在测试过程中发现，swapNode如果保留全部视频帧，则需要大量显存或者内存（20G+）。于是参考Rope本身以及VideoHelperSuit的代码，直接在SwapNode节点里进行视频合并，这样使显存、内存占用都能维持在较低水平。但是在运行结束后，视频无法在节点下方直接显示，我修改了多次代码仍然无法解决。无奈之下只能通过ComfyUI的History列表来查看输出的视频。或者直接从服务器下载视频。希望有人能帮助我修改这部分代码。
+
+Originally, I planned to use the Combine Video node from ComfyUI-VideoHelperSuite for the final video merging. However, during testing, I discovered that if the SwapNode retains all video frames, it requires a significant amount of GPU memory or RAM (20GB+). To address this, I referenced the code from both Rope and VideoHelperSuite and integrated the video merging process directly within the SwapNode. This approach keeps the GPU memory and RAM usage at a relatively low level.
+
+Unfortunately, after the process completes, the video cannot be displayed directly below the node. Despite multiple attempts to modify the code, I have been unable to resolve this issue. As a workaround, the output video can be viewed through ComfyUI's History list or downloaded directly from the server.
+
+I hope someone can assist in modifying this part of the code to enable direct video display below the node. Any help would be greatly appreciated!
 
 
+
+### Original Rope README -  Thank you very much### 
 ![image](https://github.com/Hillobar/Rope/assets/63615199/40f7397f-713c-4813-ac86-bab36f6bd5ba)
 
 
