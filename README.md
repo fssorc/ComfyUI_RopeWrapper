@@ -1,3 +1,10 @@
+Wrap Rope into ComfyUI, do a little change to use in ComfyUI. All credit goes to Hillobar and his ROPE
+
+https://github.com/Hillobar/Rope
+
+next is original Rope's README
+
+
 ![image](https://github.com/Hillobar/Rope/assets/63615199/40f7397f-713c-4813-ac86-bab36f6bd5ba)
 
 
