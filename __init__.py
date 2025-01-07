@@ -207,8 +207,8 @@ class RopeWrapper_LoadModels:
     @classmethod
     def INPUT_TYPES(s):
         return {
-            "hidden": {
-                "unique_id": "UNIQUE_ID"
+            "required": {
+                "inswap_type": (["Original","fp16"], ),
             },
         }
 
@@ -218,12 +218,13 @@ class RopeWrapper_LoadModels:
     CATEGORY = "RopeWrapper"
     model=None
     vm=None
-    def run(self, unique_id):
-        if self.model is None:
-            self.model = Models.Models()
-            self.model.setModelPath(os.path.dirname(os.path.realpath(__file__))+"/")
-            self.vm = VM.VideoManager(self.model)
-        
+    def run(self, inswap_type):
+        #if self.model is None:
+        self.model = Models.Models()
+        self.model.setModelPath(os.path.dirname(os.path.realpath(__file__))+"/")
+        self.model.setInswapType(inswap_type)
+        self.vm = VM.VideoManager(self.model)
+    
         return ( self.model, self.vm )
 
 class RopeWrapper_SwapNode:

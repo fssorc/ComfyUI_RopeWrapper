@@ -27,6 +27,8 @@ class Models():
 
         self.recognition_model = []
         self.swapper_model = []
+        self.swapper_model_loaded_type = 0
+        self.swapper_model_type="fp16"
         self.swapper_model_kps = []
         self.swapper_model_swap = []
 
@@ -44,7 +46,8 @@ class Models():
     
     def setModelPath(self, path):
         self.modelPath = path
-        
+    def setInswapType(self, type):
+        self.swapper_model_type = type
     def get_gpu_memory(self):
         command = "nvidia-smi --query-gpu=memory.total --format=csv"
         memory_total_info = sp.check_output(command.split()).decode('ascii').split('\n')[:-1][1:]
@@ -121,10 +124,16 @@ class Models():
 
     def calc_swapper_latent(self, source_embedding):
         if not self.swapper_model:
-            print("now begin load inswapper_128.onnx")      
-            graph = onnx.load(self.modelPath+"models/inswapper_128.onnx").graph            
-            self.emap = onnx.numpy_helper.to_array(graph.initializer[-1])
-            print("now loaded inswapper_128.onnx")    
+            if self.swapper_model_type=="fp16":
+                print("calc_swapper_latent:now begin load inswapper_128.fp16.onnx")      
+                graph = onnx.load(self.modelPath+"models/inswapper_128.fp16.onnx").graph            
+                self.emap = onnx.numpy_helper.to_array(graph.initializer[-1])
+                print("now loaded inswapper_128.fp16.onnx")    
+            else:
+                print("calc_swapper_latent:now begin load inswapper_128.onnx")      
+                graph = onnx.load(self.modelPath+"models/inswapper_128.onnx").graph            
+                self.emap = onnx.numpy_helper.to_array(graph.initializer[-1])
+                print("now loaded inswapper_128.onnx")                   
         
         n_e = source_embedding / l2norm(source_embedding)
         latent = n_e.reshape((1,-1))
@@ -138,7 +147,12 @@ class Models():
             sess_options = onnxruntime.SessionOptions()
             sess_options.enable_cpu_mem_arena = False            
             # self.swapper_model = onnxruntime.InferenceSession( self.modelPath+"models/inswapper_128_last_cubic.onnx", sess_options, providers=[('CUDAExecutionProvider', cuda_options), 'CPUExecutionProvider'])            
-            self.swapper_model = onnxruntime.InferenceSession( self.modelPath+"models/inswapper_128.onnx", providers=self.providers)
+            if self.swapper_model_type=="fp16":   
+                print("run_swapper:now begin load inswapper_128.fp16.onnx")            
+                self.swapper_model = onnxruntime.InferenceSession( self.modelPath+"models/inswapper_128.fp16.onnx", providers=self.providers)
+            else:
+                print("run_swapper:now begin load inswapper_128.onnx")     
+                self.swapper_model = onnxruntime.InferenceSession( self.modelPath+"models/inswapper_128.onnx", providers=self.providers)
 
         io_binding = self.swapper_model.io_binding()
         io_binding.bind_input(name='target', device_type='cuda', device_id=0, element_type=np.float32, shape=(1,3,128,128), buffer_ptr=image.data_ptr())
