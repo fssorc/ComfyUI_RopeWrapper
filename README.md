@@ -6,8 +6,14 @@ https://github.com/Hillobar/Rope
 所需模型放置在本插件目录下的Models里。下载地址请访问Rope原仓库。https://github.com/Hillobar/Rope
 
 To run this plugin, ComfyUI-VideoHelperSuite and ComfyUI-KJNodes are required. Since a few lines of code in Rope have been modified (one or two lines), the Rope code has been included in this repository to prevent the plugin from breaking in case of future Rope updates. Please note that the copyright for the Rope code belongs to its original author.
-
 The required models should be placed in the Models directory within this plugin's folder. For the download links, please visit the original Rope repository: https://github.com/Hillobar/Rope.
+
+Rope原本使用inswapper_128.fp16.onnx，在我自己的Windows环境下运行正常。但是在Linux上换脸结果很差。于是我选择切换到inswapper_128.onnx
+
+
+Rope uses inswapper_128.fp16.onnx and it runs well on my Windows11. but when i put code on Linux, face will be ugly. i don't know why. so i switch to inswapper_128.onnx
+RopeWrapper_LoadModel node now has a switch to choose between inswapper_128.fp16.onnx and  inswapper_128.onnx.
+inswapper_128.onnx can be found on huggingface. this is one of them: [ inswapper_128.onnx](https://huggingface.co/ezioruan/inswapper_128.onnx)
 
 ### Usage:  ###
 使用步骤：先执行FindFace部分，调整detection_threshold可以找到更多人脸，调整similarytyThreshold可以区分不同身份的人。得到人脸列表以及DeteceResult。DeteceResult可以直接发送到swap节点，也用save节点保存下来，在以后重复运行的时候节省处理时间。 
